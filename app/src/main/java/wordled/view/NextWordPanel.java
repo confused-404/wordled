@@ -2,7 +2,7 @@ package wordled.view;
 
 import javax.swing.*;
 
-import wordled.Controller;
+import wordled.controller.Controller;
 
 import java.awt.*;
 

@@ -3,6 +3,7 @@ package wordled;
 import java.awt.*;
 import javax.swing.*;
 
+import wordled.controller.Controller;
 import wordled.view.MainPanel;
 
 public class App extends JFrame {

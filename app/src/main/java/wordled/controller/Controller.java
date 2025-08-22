@@ -1,5 +1,6 @@
-package wordled;
+package wordled.controller;
 
+import wordled.model.Model;
 import wordled.view.LettersPanel;
 
 public class Controller {
@@ -11,17 +12,21 @@ public class Controller {
     }
 
     public void handleLetterButtonClick(int index) {
-        model.cycleLetterStatus(index);
+        this.model.cycleLetterStatus(index);
         updateView();
     }
 
     public void handleNextWordButtonClick() {
-        model.generateNextWord();
+        if (!model.readyForNextWord()) {
+            this.lettersPanel.showNotReadyDialog();
+            return;
+        }
+        this.model.generateNextWord();
         updateView();
     }
     
     public void updateView() {
-        lettersPanel.updateButtons(model.getCurrentWord(), model.getLetterStatuses());
+        lettersPanel.updateButtons(model.getCurrentWord(), this.model.getLetterStatuses());
     }
     
     public void setLettersPanel(LettersPanel lettersPanel) {

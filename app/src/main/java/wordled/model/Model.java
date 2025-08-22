@@ -1,4 +1,4 @@
-package wordled;
+package wordled.model;
 
 import wordled.LetterStatus;
 
@@ -53,5 +53,12 @@ public class Model {
             letterStatuses[i] = this.letterStatuses[i];
         }
         return letterStatuses;
+    }
+
+    public boolean readyForNextWord() {
+        for (LetterStatus l : this.letterStatuses) {
+            if (l == LetterStatus.EMPTY) return false;
+        }
+        return true;
     }
 }

@@ -1,8 +1,10 @@
 package wordled.view;
 
 import javax.swing.*;
-import wordled.Controller;
+
 import wordled.LetterStatus;
+import wordled.controller.Controller;
+
 import java.awt.*;
 
 public class LettersPanel extends JPanel {
@@ -15,7 +17,7 @@ public class LettersPanel extends JPanel {
         this.letterButtons = new LetterButton[5];
         this.addLetterButtons();
     }
-    
+
     public void updateButtons(String word, LetterStatus[] statuses) {
         for (int i = 0; i < 5; i++) {
             updateButtonText(i, word.charAt(i));
@@ -23,7 +25,7 @@ public class LettersPanel extends JPanel {
             updateButtonBorder(i, statuses[i]);
         }
     }
-    
+
     private void updateButtonText(int index, char letter) {
         LetterButton button = letterButtons[index];
         button.setText(String.valueOf(letter));
@@ -49,5 +51,12 @@ public class LettersPanel extends JPanel {
             letterButtons[i] = currButton;
             this.add(currButton);
         }
+    }
+
+    public void showNotReadyDialog() {
+        JOptionPane.showMessageDialog(this,
+                "All letter boxes must be set to a status (Green, Yellow, or Gray) before proceeding.",
+                "Invalid Action",
+                JOptionPane.WARNING_MESSAGE);
     }
 }

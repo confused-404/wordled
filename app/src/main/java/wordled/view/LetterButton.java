@@ -1,8 +1,9 @@
 package wordled.view;
 
 import javax.swing.*;
-import wordled.Controller;
+
 import wordled.view.PersonalColors;
+import wordled.controller.Controller;
 import wordled.view.FixedStateButtonModel;
 import java.awt.*;
 
