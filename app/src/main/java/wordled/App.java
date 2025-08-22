@@ -13,6 +13,9 @@ public class App extends JFrame {
         this.setTitle("Wordled");
         this.setSize(800, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        this.add(new MainPanel());
+
         this.setVisible(true);
     }
 }
