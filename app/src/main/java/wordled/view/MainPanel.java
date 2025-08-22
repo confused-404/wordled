@@ -17,6 +17,7 @@ public class MainPanel extends JPanel {
         this.lettersPanel = new LettersPanel(controller);
         this.nextWordPanel = new NextWordPanel(controller);
 
+        this.add(Box.createVerticalStrut(30));
         this.add(this.lettersPanel);
         this.add(Box.createVerticalStrut(30));
         this.add(this.nextWordPanel);

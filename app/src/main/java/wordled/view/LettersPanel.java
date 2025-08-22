@@ -41,7 +41,7 @@ public class LettersPanel extends JPanel {
         if (status == LetterStatus.EMPTY) {
             button.setBorder(BorderFactory.createLineBorder(PersonalColors.LETTER_BUTTON_STARTING_BORDER_COLOR, 4));
         } else {
-            button.setBorder(null);
+            button.setBorder(BorderFactory.createLineBorder(PersonalColors.getColorForStatus(status), 4));
         }
     }
 
