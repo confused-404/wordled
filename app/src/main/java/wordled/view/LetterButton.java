@@ -3,6 +3,7 @@ package wordled.view;
 import javax.swing.*;
 import wordled.Controller;
 import wordled.view.PersonalColors;
+import wordled.view.FixedStateButtonModel;
 import java.awt.*;
 
 public class LetterButton extends JButton {
@@ -16,5 +17,6 @@ public class LetterButton extends JButton {
         this.setText("?");
         this.setBackground(PersonalColors.LETTER_BUTTON_STARTING_BACKGROUND_COLOR);
         this.setBorder(BorderFactory.createLineBorder(PersonalColors.LETTER_BUTTON_STARTING_BORDER_COLOR, 4));
+        this.setModel(new FixedStateButtonModel());
     }
 }
