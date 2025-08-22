@@ -1,0 +1,53 @@
+package wordled.view;
+
+import javax.swing.*;
+import wordled.Controller;
+import wordled.LetterStatus;
+import java.awt.*;
+
+public class LettersPanel extends JPanel {
+    private LetterButton[] letterButtons;
+    private Controller controller;
+
+    public LettersPanel(Controller controller) {
+        super(new GridLayout(1, 5, 20, 0));
+        this.controller = controller;
+        this.letterButtons = new LetterButton[5];
+        this.addLetterButtons();
+    }
+    
+    public void updateButtons(String word, LetterStatus[] statuses) {
+        for (int i = 0; i < 5; i++) {
+            updateButtonText(i, word.charAt(i));
+            updateButtonColor(i, statuses[i]);
+            updateButtonBorder(i, statuses[i]);
+        }
+    }
+    
+    private void updateButtonText(int index, char letter) {
+        LetterButton button = letterButtons[index];
+        button.setText(String.valueOf(letter));
+    }
+
+    private void updateButtonColor(int index, LetterStatus status) {
+        LetterButton button = letterButtons[index];
+        button.setBackground(PersonalColors.getColorForStatus(status));
+    }
+
+    private void updateButtonBorder(int index, LetterStatus status) {
+        LetterButton button = letterButtons[index];
+        if (status == LetterStatus.EMPTY) {
+            button.setBorder(BorderFactory.createLineBorder(PersonalColors.LETTER_BUTTON_STARTING_BORDER_COLOR, 4));
+        } else {
+            button.setBorder(null);
+        }
+    }
+
+    private void addLetterButtons() {
+        for (int i = 0; i < 5; i++) {
+            LetterButton currButton = new LetterButton(controller, i);
+            letterButtons[i] = currButton;
+            this.add(currButton);
+        }
+    }
+}

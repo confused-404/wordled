@@ -3,6 +3,8 @@ package wordled;
 import java.awt.*;
 import javax.swing.*;
 
+import wordled.view.MainPanel;
+
 public class App extends JFrame {
     public static void main(String[] args) {
         new App();
@@ -14,7 +16,10 @@ public class App extends JFrame {
         this.setSize(800, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        this.add(new MainPanel());
+        Controller controller = new Controller();
+        MainPanel mainPanel = new MainPanel(controller);
+        controller.setLettersPanel(mainPanel.getLettersPanel());
+        this.add(mainPanel);
 
         this.setVisible(true);
     }
