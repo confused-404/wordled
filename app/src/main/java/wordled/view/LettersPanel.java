@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import wordled.LetterStatus;
 import wordled.controller.Controller;
+import wordled.view.PersonalColors;
 
 import java.awt.*;
 
@@ -13,6 +14,8 @@ public class LettersPanel extends JPanel {
 
     public LettersPanel(Controller controller) {
         super(new GridLayout(1, 5, 20, 0));
+        this.setBackground(PersonalColors.WINDOW_BACKGROUND_COLOR);
+
         this.controller = controller;
         this.letterButtons = new LetterButton[5];
         this.addLetterButtons();

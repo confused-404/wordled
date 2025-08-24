@@ -5,6 +5,7 @@ import javax.swing.*;
 
 import wordled.controller.Controller;
 import wordled.view.MainPanel;
+import wordled.view.PersonalColors;
 
 public class App extends JFrame {
     public static void main(String[] args) {
@@ -14,14 +15,17 @@ public class App extends JFrame {
     public App() {
         super();
         this.setTitle("Wordled");
-        this.setSize(800, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.getContentPane().setBackground(PersonalColors.WINDOW_BACKGROUND_COLOR);
 
         Controller controller = new Controller();
         MainPanel mainPanel = new MainPanel(controller);
         controller.setLettersPanel(mainPanel.getLettersPanel());
         this.add(mainPanel);
 
+        this.pack();
+        this.setMinimumSize(new Dimension(800, 300));
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 }
