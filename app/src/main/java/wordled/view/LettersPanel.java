@@ -8,6 +8,10 @@ import wordled.view.PersonalColors;
 
 import java.awt.*;
 
+/**
+ * @deprecated Class deprecated because I jumped the gun
+ */
+@Deprecated
 public class LettersPanel extends JPanel {
     private LetterButton[] letterButtons;
     private Controller controller;

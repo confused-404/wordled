@@ -3,6 +3,10 @@ package wordled.view;
 import java.awt.*;
 import wordled.LetterStatus;
 
+/**
+ * @deprecated Class deprecated because I jumped the gun
+ */
+@Deprecated
 public class PersonalColors {
     public static final Color WINDOW_BACKGROUND_COLOR = new Color(25, 25, 25);
 

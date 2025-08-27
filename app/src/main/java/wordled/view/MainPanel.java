@@ -6,6 +6,10 @@ import wordled.controller.Controller;
 
 import java.awt.*;
 
+/**
+ * @deprecated Class deprecated because I jumped the gun
+ */
+@Deprecated
 public class MainPanel extends JPanel {
     private LettersPanel lettersPanel;
     private NextWordPanel nextWordPanel;

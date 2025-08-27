@@ -8,6 +8,10 @@ import wordled.controller.Controller;
 import wordled.view.FixedStateButtonModel;
 import java.awt.*;
 
+/**
+ * @deprecated Class deprecated because I jumped the gun
+ */
+@Deprecated
 public class LetterButton extends JButton {
     public LetterButton(Controller controller, int index) {
         super();
