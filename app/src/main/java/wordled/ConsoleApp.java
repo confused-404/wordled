@@ -4,8 +4,9 @@ import java.io.File;
 import APClasses.IBIO;
 
 public class ConsoleApp {
+    
     public static void main(String[] args) {
-        Controller controller = new Controller(new File("C:\\Users\\eleph\\Documents\\Important Documents\\ProgrammingProjects\\School\\ibcs\\wordled\\app\\src\\main\\java\\wordled\\data\\WordList.txt"));
+        Controller controller = new Controller(new File("data\\WordList.txt"));
         IBIO console = new IBIO();
 
         console.output("Welcome to the wordle solver\n");
