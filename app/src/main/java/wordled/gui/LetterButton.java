@@ -2,12 +2,12 @@ package wordled.gui;
 
 import javax.swing.*;
 
-import wordled.Controller;
+import wordled.WordleController;
 
 import java.awt.*;
 
 public class LetterButton extends JButton {
-    public LetterButton(Controller controller, LettersPanel parentPanel, int index) {
+    public LetterButton(WordleController controller, LettersPanel parentPanel, int index) {
         super();
         this.setForeground(Color.WHITE);
         this.setFont(new Font("Inter", Font.BOLD, 64));
@@ -24,6 +24,7 @@ public class LetterButton extends JButton {
             this.setBackground(PersonalColors.getNextColor(this.getBackground()));
             int status = PersonalColors.getStatusForColor(this.getBackground());
             controller.setColor(index, status);
+            parentPanel.setStatus(index, status);
             parentPanel.updateButtonBorder(index, status);
         });
     }

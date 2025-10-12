@@ -4,7 +4,7 @@ import java.io.File;
 
 public class Controller implements WordleController {
     private int[] letterColors;
-    private Model model;
+    private WordleModel model;
 
     public Controller(File f) {
         this.letterColors = new int[] {-1, -1, -1, -1, -1};
