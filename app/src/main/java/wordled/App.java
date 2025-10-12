@@ -1,34 +1,31 @@
-// package wordled;
+package wordled;
 
-// import java.awt.*;
-// import javax.swing.*;
+import java.awt.*;
+import java.io.File;
 
-// import wordled.view.MainPanel;
-// import wordled.view.PersonalColors;
+import javax.swing.*;
 
-// /**
-//  * @deprecated Class deprecated because I jumped the gun
-//  */
-// @Deprecated
-// public class App extends JFrame {
-//     public static void main(String[] args) {
-//         new App();
-//     }
+import wordled.gui.PersonalColors;
 
-//     public App() {
-//         super();
-//         this.setTitle("Wordled");
-//         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//         this.getContentPane().setBackground(PersonalColors.WINDOW_BACKGROUND_COLOR);
+public class App extends JFrame {
+    public static void main(String[] args) {
+        new App();
+    }
 
-//         Controller controller = new Controller();
-//         MainPanel mainPanel = new MainPanel(controller);
-//         controller.setLettersPanel(mainPanel.getLettersPanel());
-//         this.add(mainPanel);
+    public App() {
+        super();
+        this.setTitle("Wordled");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.getContentPane().setBackground(PersonalColors.WINDOW_BACKGROUND_COLOR);
 
-//         this.pack();
-//         this.setMinimumSize(new Dimension(800, 300));
-//         this.setLocationRelativeTo(null);
-//         this.setVisible(true);
-//     }
-// }
+        wordled.Controller controller = new wordled.Controller(new File("data\\WordList.txt"));
+
+        wordled.gui.MainPanel mainPanel = new wordled.gui.MainPanel(controller);
+        this.getContentPane().add(mainPanel);
+
+        this.pack();
+        this.setMinimumSize(new Dimension(800, 300));
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+    }
+}

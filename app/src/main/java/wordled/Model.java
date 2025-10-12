@@ -110,11 +110,13 @@ public class Model implements WordleModel {
         // System.out.println("pool size: " + String.valueOf(this.validWords.size()));
 
         if (this.lastGuess.equals("")) {
+            System.out.println("starting guess trigger");
             this.lastGuess = Model.STARTING_GUESS;
             return Model.STARTING_GUESS;
         }
 
         this.lastGuess = this.pickBestWord();
+        System.out.println("best guess: " + this.lastGuess);
         this.validWords.remove(this.lastGuess);
         return this.lastGuess;
     }

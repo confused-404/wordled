@@ -1,17 +1,12 @@
-package wordled.view;
+package wordled.gui;
 
 import javax.swing.*;
 
-import wordled.LetterStatus;
-import wordled.controller.Controller;
-import wordled.view.PersonalColors;
+import wordled.Controller;
+import wordled.gui.PersonalColors;
 
 import java.awt.*;
 
-/**
- * @deprecated Class deprecated because I jumped the gun
- */
-@Deprecated
 public class LettersPanel extends JPanel {
     private LetterButton[] letterButtons;
     private Controller controller;
@@ -25,27 +20,27 @@ public class LettersPanel extends JPanel {
         this.addLetterButtons();
     }
 
-    public void updateButtons(String word, LetterStatus[] statuses) {
+    public void updateButtons(String word, int[] statuses) {
         for (int i = 0; i < 5; i++) {
-            updateButtonText(i, word.charAt(i));
-            updateButtonColor(i, statuses[i]);
-            updateButtonBorder(i, statuses[i]);
+            this.updateButtonText(i, word.charAt(i));
+            this.updateButtonColor(i, statuses[i]);
+            this.updateButtonBorder(i, statuses[i]);
         }
     }
 
     private void updateButtonText(int index, char letter) {
-        LetterButton button = letterButtons[index];
-        button.setText(String.valueOf(letter));
+        LetterButton button = this.letterButtons[index];
+        button.setText(String.valueOf(letter).toUpperCase());
     }
 
-    private void updateButtonColor(int index, LetterStatus status) {
-        LetterButton button = letterButtons[index];
+    private void updateButtonColor(int index, int status) {
+        LetterButton button = this.letterButtons[index];
         button.setBackground(PersonalColors.getColorForStatus(status));
     }
 
-    private void updateButtonBorder(int index, LetterStatus status) {
-        LetterButton button = letterButtons[index];
-        if (status == LetterStatus.EMPTY) {
+    public void updateButtonBorder(int index, int status) {
+        LetterButton button = this.letterButtons[index];
+        if (status == -1) {
             button.setBorder(BorderFactory.createLineBorder(PersonalColors.LETTER_BUTTON_STARTING_BORDER_COLOR, 4));
         } else {
             button.setBorder(BorderFactory.createLineBorder(PersonalColors.getColorForStatus(status), 4));
@@ -54,8 +49,8 @@ public class LettersPanel extends JPanel {
 
     private void addLetterButtons() {
         for (int i = 0; i < 5; i++) {
-            LetterButton currButton = new LetterButton(controller, i);
-            letterButtons[i] = currButton;
+            LetterButton currButton = new LetterButton(controller, this, i);
+            this.letterButtons[i] = currButton;
             this.add(currButton);
         }
     }

@@ -7,9 +7,13 @@ public class Controller implements WordleController {
     private Model model;
 
     public Controller(File f) {
-        this.letterColors = new int[5];
+        this.letterColors = new int[] {-1, -1, -1, -1, -1};
         this.model = new Model();
         this.model.setInitialWords(f);
+    }
+
+    public int[] getLetterColors() {
+        return this.letterColors;
     }
 
     @Override

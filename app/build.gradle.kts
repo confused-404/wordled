@@ -43,7 +43,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = "wordled.ConsoleApp"
+    mainClass = "wordled.App"
 }
 
 tasks.named<Test>("test") {
