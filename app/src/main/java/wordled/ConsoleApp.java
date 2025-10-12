@@ -3,7 +3,7 @@ package wordled;
 import java.io.File;
 import APClasses.IBIO;
 
-public class ConsoleApp {
+@Deprecated public class ConsoleApp {
     
     public static void main(String[] args) {
         Controller controller = new Controller(new File("data\\WordList.txt"));
