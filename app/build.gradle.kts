@@ -23,12 +23,21 @@ dependencies {
 
     // This dependency is used by the application.
     implementation(libs.guava)
+    implementation(files("libs/APClasses.jar"))
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
+    }
+
+    sourceSets {
+        named("main") {
+            java {
+                exclude("wordled/view/**")
+            }
+        }
     }
 }
 

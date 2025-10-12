@@ -1,4 +1,4 @@
-package wordled.view;
+package wordled.gui;
 
 import javax.swing.DefaultButtonModel;
 
