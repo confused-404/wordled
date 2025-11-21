@@ -1,11 +1,12 @@
 package wordled;
 
 import java.awt.*;
+import java.io.File;
+
 import javax.swing.*;
 
-import wordled.controller.Controller;
-import wordled.view.MainPanel;
-import wordled.view.PersonalColors;
+import wordled.gui.PersonalColors;
+import wordled.gui.MainPanel;
 
 public class App extends JFrame {
     public static void main(String[] args) {
@@ -18,10 +19,10 @@ public class App extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(PersonalColors.WINDOW_BACKGROUND_COLOR);
 
-        Controller controller = new Controller();
+        WordleController controller = new Controller(new File("data\\WordList.txt"));
+
         MainPanel mainPanel = new MainPanel(controller);
-        controller.setLettersPanel(mainPanel.getLettersPanel());
-        this.add(mainPanel);
+        this.getContentPane().add(mainPanel);
 
         this.pack();
         this.setMinimumSize(new Dimension(800, 300));
