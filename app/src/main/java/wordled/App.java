@@ -19,7 +19,13 @@ public class App extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(PersonalColors.WINDOW_BACKGROUND_COLOR);
 
-        WordleController controller = new Controller(new File("data\\WordList.txt"));
+        File wordFile = new File("data/WordList.txt");
+
+        // System.out.println("Working Directory = " + System.getProperty("user.dir"));
+        // System.out.println("Looking for file at = " + wordFile.getAbsolutePath());
+        // System.out.println("Exists? = " + wordFile.exists());
+
+        WordleController controller = new Controller(wordFile);
 
         MainPanel mainPanel = new MainPanel(controller);
         this.getContentPane().add(mainPanel);

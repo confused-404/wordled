@@ -35,6 +35,7 @@ public class Model implements WordleModel {
             }
             return this.validWords.size();
         } catch (FileNotFoundException e) {
+            // System.out.println("file not loaded");
             return -1;
         }
     }
